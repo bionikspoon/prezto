@@ -30,16 +30,19 @@ export PROJECT_HOME=$HOME/Code
 export NVM_DIR="/home/manu/.nvm"
 export EDITOR=vim
 export VISUAL=vim
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin"
 export PHANTOMJS_BIN=/usr/bin/phantomjs
 export IBUS_ENABLE_SYNC_MODE=1
+
 #
-# ALIASES and FUNCTIOS
+# ALIASES and FUNCTIONS
 #
 src(){ source ~/.zshrc }
 mkcd(){ mkdir $1 && cd $_ }
+# Haskell autocomplete
+# eval "$(stack --bash-completion-script stack)"
 
-# Virtual Environment
+# VIRTUAL ENVIRONMENTS
 alias ve='workon'
 alias ve.d='deactivate'
 alias ve.mk='mkvirtualenv'
@@ -85,4 +88,5 @@ if [ -r .envrc ]; then
 fi
 source ~/.local/bin/virtualenvwrapper.sh
 
+[ -f /home/manu/.travis/travis.sh ] && source /home/manu/.travis/travis.sh
 

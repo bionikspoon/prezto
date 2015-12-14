@@ -38,8 +38,9 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'node' \
   'python' \
-  'rails' \
   'rsync' \
+  'haskell' \
+  'rails' \
   'spectrum' \
   'ruby' \
   'terminal' \
