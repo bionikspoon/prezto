@@ -31,6 +31,7 @@ export NVM_DIR="/home/manu/.nvm"
 export EDITOR=vim
 export VISUAL=vim
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH=$HOME/.cabal/bin:$PATH
 export PHANTOMJS_BIN=/usr/bin/phantomjs
 export IBUS_ENABLE_SYNC_MODE=1
 
@@ -39,8 +40,6 @@ export IBUS_ENABLE_SYNC_MODE=1
 #
 src(){ source ~/.zshrc }
 mkcd(){ mkdir $1 && cd $_ }
-# Haskell autocomplete
-# eval "$(stack --bash-completion-script stack)"
 
 # VIRTUAL ENVIRONMENTS
 alias ve='workon'
@@ -90,3 +89,10 @@ source ~/.local/bin/virtualenvwrapper.sh
 
 [ -f /home/manu/.travis/travis.sh ] && source /home/manu/.travis/travis.sh
 
+#
+# ANTIGEN
+#
+# source .antigen/antigen.zsh
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+eval "$(stack --bash-completion-script stack)"

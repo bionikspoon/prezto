@@ -58,10 +58,12 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
-
-zstyle ':prezto:module:editor:info:keymap:primary' format '>>>'
+zstyle ':prezto:module:editor:info:keymap:primary'   format "❯"
+zstyle ':prezto:module:editor:info:keymap:alternate' format "❮"
+# zstyle ':prezto:module:editor:info:keymap:primary' format '>>>'
 zstyle ':prezto:module:editor:info:keymap:primary:insert' format 'I'
 zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format 'O'
+# zstyle ':prezto:module:editor:info:keymap:alternate' format '<<<":'
 zstyle ':prezto:module:editor:info:completing' format '...'
 
 
@@ -96,7 +98,7 @@ zstyle ':prezto:module:git:log:context' format ''
 #
 # Node
 #
-zstyle ':prezto:module:node:info:version' format 'version:%v'
+zstyle ':prezto:module:node:info:version' format 'node:%v'
 
 
 #
@@ -113,13 +115,13 @@ zstyle ':prezto:module:node:info:version' format 'version:%v'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'steeef'
+zstyle ':prezto:module:prompt' theme 'pure'
 
 #
 # Python
 #
 
-zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
+zstyle ':prezto:module:python:info:virtualenv' format 've %v'
 
 #
 # Ruby
