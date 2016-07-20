@@ -1,13 +1,98 @@
+#! /usr/bin/env zsh
+
 #
 # Executes commands at the start of an interactive session.
 #
 # Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Manu Phatak <bionikspoon@gmail.com>
 #
+
+#
+# PREZTO BOOTSTRAP
+#
+
+if [ $TERM = "xterm" ]
+then
+    export TERM=xterm-256color
+fi
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+
+#
+# EXPORTS
+#
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Code
+export NVM_DIR="/home/manu/.nvm"
+export EDITOR=vim
+export VISUAL=vim
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH=$HOME/.cabal/bin:$PATH
+export PHANTOMJS_BIN=/usr/bin/phantomjs
+export IBUS_ENABLE_SYNC_MODE=1
+
+#
+# ALIASES and FUNCTIONS
+#
+src(){ source ~/.zshrc }
+mkcd(){ mkdir $1 && cd $_ }
+
+# VIRTUAL ENVIRONMENTS
+alias ve='workon'
+alias ve.d='deactivate'
+alias ve.mk='mkvirtualenv'
+alias ve.tmp='mktmpenv'
+alias ve.rm='rmvirtualenv'
+alias ve.switch='workon'
+alias ve.add2='add2virtualenv'
+alias ve.cd='cdvirtualenv'
+alias ve.cp='cpvirtualenv'
+alias ve.set='setvirtualenvproject'
+alias ve.all='allvirtualenv'
+alias ve.wipe='wipeenv'
+alias ve.cdsite='cdsitepackages'
+
+# Git Flow
+alias gf="git flow"
+alias gf.i="gf init"
+alias gf.f="gf feature"
+alias gf.fs="gf.f start"
+alias gf.ff="gf.f finish"
+alias gf.fp="gf.f publish"
+alias gf.ft="gf.f track"
+
+alias gf.r="gf release"
+alias gf.rs="gf.r start"
+alias gf.rf="gf.r finish"
+alias gf.rp="gf.r publish"
+alias gf.rt="gf.r track"
+
+alias gf.h="gf hotfix"
+alias gf.hs="gf.h start"
+alias gf.hf="gf.h finish"
+alias gf.hp="gf.h publish"
+alias gf.ht="gf.h track"
+
+#
+# SOURCES
+#
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+
+if [ -r .envrc ]; then
+    source .envrc
+fi
+source ~/.local/bin/virtualenvwrapper.sh
+
+[ -f /home/manu/.travis/travis.sh ] && source /home/manu/.travis/travis.sh
+
+#
+# ANTIGEN
+#
+# source .antigen/antigen.zsh
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+eval "$(stack --bash-completion-script stack)"
