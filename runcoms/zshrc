@@ -7,10 +7,6 @@
 #   Manu Phatak <bionikspoon@gmail.com>
 #
 
-#
-# PREZTO BOOTSTRAP
-#
-
 if [ $TERM = "xterm" ]
 then
     export TERM=xterm-256color
